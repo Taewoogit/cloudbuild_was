@@ -5,7 +5,7 @@ metadata:
   labels:
     tier: was
 spec:
-  replicas: 3 # pod 개수 지정 
+  replicas: 4 # pod 개수 지정 
   selector:
     matchLabels:
       tier: was
