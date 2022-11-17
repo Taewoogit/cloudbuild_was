@@ -33,7 +33,7 @@ steps:
           PROJECT=$$(gcloud config get-value core/project)
           ZONE=${_CLOUDSDK_COMPUTE_ZONE}
           export PROJECT_ID=$PROJECT_ID
-          export CLUSTER=terraform-tae-gke
+          export CLUSTER=gogle-cluster
           export ZONE=asia-northeast3
 
           gcloud container clusters get-credentials "$${CLUSTER}" \
@@ -42,7 +42,7 @@ steps:
 
 
 
-          sed -i 's|asia-northeast3-docker.pkg.dev/terraform-tae/was-registry/was:.*|asia-northeast3-docker.pkg.dev/terraform-tae/was-registry/was:$TAG_NAME|' ./k8s/*.yaml
+          sed -i 's|asia-northeast3-docker.pkg.dev/midyear-spot-368821/was-registry/was:.*|asia-northeast3-docker.pkg.dev/midyear-spot-368821/was-registry/was:$TAG_NAME|' ./k8s/*.yaml
           
           kubectl get ns was || kubectl create ns was
           kubectl apply --namespace was --recursive -f ./k8s/
